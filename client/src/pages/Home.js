@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FoodForm from '../components/FoodForm'
+import FoodList from '../components/FoodList'
 
 function Home() {
+
+  const [foodArray, setFoodArray] = useState([]);
+  
   return (
     <div>
-        <FoodForm />
+        <FoodForm setFoodArray={setFoodArray} foodArray={foodArray}/>
+        <FoodList setFoodArray={setFoodArray} foodArray={foodArray}/>
     </div>
   )
 }
