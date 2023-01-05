@@ -7,9 +7,22 @@ function FoodList({setFoodArray , foodArray}) {
     
     const updateFoodName = (id) => {
         Axios.put("http://localhost:3001/update", { name: newName, id: id }).then((response) => {
-            alert("update");
+            setFoodArray(foodArray.map((val) => {
+                return val.id === id ? {id: val.id, name: val.newName, type: val.type, location: val.location, recommendation: val.recommendation, price: val.price, rating: val.rating, comments: val.comments} : val;
+        }));
         }
      )
+    }
+
+    const deleteFood = (id) => {
+        Axios.delete(`http://localhost:3001/delete/${id}`).then(() => {
+           setFoodArray(foodArray.filter((val) => {
+            return val.id !== id
+           })) 
+        })
+        .catch((error) => {
+            console.error(error)
+        });
     }
     
 
@@ -28,7 +41,10 @@ function FoodList({setFoodArray , foodArray}) {
                 <h3>{val.name}</h3>
                 <p>{val.price}</p>
                 <div><input onChange={(e) => setNewName(e.target.value)} type='text'/>
-                <button onClick={() => {updateFoodName(val.id);}}>Update</button></div>
+                <button onClick={() => {updateFoodName(val.id);}}>Update</button>
+                <button onClick={() => {
+                    deleteFood(val.id)
+                }}>Delete</button></div>
             </div>
         })}
     </div>
