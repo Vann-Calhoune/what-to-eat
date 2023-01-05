@@ -1,8 +1,9 @@
 import { useState } from "react"
+import Axios from 'axios'
 
 
 
-function FoodForm() {
+function FoodForm({ setFoodArray, foodArray}) {
 
     const [name, setName] = useState('');
     const [type, setType] = useState('');
@@ -12,10 +13,16 @@ function FoodForm() {
     const [rating, setRating] = useState(0);
     const [comments, setComments] = useState('');
 
-    const displayInfo = (e) => {
-        e.preventDefault();
-        console.log(name)
+    const addRestaurant = () => {
+        Axios.post('http://localhost:3001/create', {name: name, type: type, location: location, recommendation: recommendation, price: price, rating: rating, comments: comments
+    }).then(() => {
+        setFoodArray([...foodArray, {
+            name: name, type: type, location: location, recommendation: recommendation, price: price, rating: rating, comments: comments
+        }]);
+    });
     }
+
+   
 
   return (
     <form className="entry">
@@ -47,7 +54,7 @@ function FoodForm() {
         <textarea onChange={(e) => {
             setComments(e.target.value);
         }}></textarea>
-        <button onClick={displayInfo}>Submit</button>
+        <button onClick={addRestaurant}>Submit</button>
     </form>
   )
 }
