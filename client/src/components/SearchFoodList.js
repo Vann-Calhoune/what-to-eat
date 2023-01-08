@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const ListDiv = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: center;
 align-items: center;
+height: 90vh;
 `
 const ListFormat = styled.div`
 border: 1px solid black;
@@ -18,6 +18,12 @@ background-color: white;
 width: 300px;
 gap: 10px;
 justify-content: center;
+
+`
+
+const NoResult = styled.h2`
+padding-top: 30px;
+height: 90vh;
 `
 
 function SearchFoodList({ searchResults, setSearchResults }) {
@@ -25,7 +31,7 @@ function SearchFoodList({ searchResults, setSearchResults }) {
 
   return (
     <ListDiv>
-        {searchResults.map((val) => {
+        {searchResults?.length ? searchResults.map((val) => {
             return <ListFormat key={val.id}> 
                         <h3>Name: {val.name}</h3>
                         <p>Type: {val.type}</p>
@@ -35,7 +41,8 @@ function SearchFoodList({ searchResults, setSearchResults }) {
                         <p>Rating: {val.rating >= 1 ? val.rating : '(Have not ate here yet)'}</p>
                         <p>Comments: {val.comments}</p>
             </ListFormat>
-        })}
+        }): <NoResult>No restaurants to display</NoResult>} 
+      
     </ListDiv>
   )
 }
