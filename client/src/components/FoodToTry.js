@@ -23,7 +23,7 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
-> input {
+> input, select {
     border-radius: 10px;
     height: 30px;
     padding: 3px;
@@ -36,6 +36,9 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
 > label {
     font-size: 12px;
 }
+> button: hover {
+    cursor: pointer;
+  }
 `
 
 
@@ -65,17 +68,31 @@ function FoodToTry({setNewFoodArray , newFoodArray}) {
             setNewName(e.target.value);
         }}></input>
         <label>Type:</label>
-        <input type='text' onChange={(e) => {
+        <select onChange={(e) => {
             setNewType(e.target.value);
-        }}></input>
+        }}> <option>Other</option>
+            <option>American</option>
+            <option>BBQ</option>
+            <option>Burgers</option>
+            <option>Chicken</option>
+            <option>Chinese</option>
+            <option>Indian</option>
+            <option>Jamaican</option>
+            <option>Pizza</option>
+            <option>Subs</option>
+            <option>Tacos</option>
+            <option>Thai</option>
+            </select>
         <label>Location:</label>
         <input type='text' onChange={(e) => {
             setNewLocation(e.target.value);
         }}></input>
         <label>Price:</label>
-        <input type='text' onChange={(e) => {
+         <select type='text' onChange={(e) => {
             setNewPrice(e.target.value);
-        }}></input>
+        }}><option>$</option>
+            <option>$$</option>
+            <option>$$$</option></select>
         <label>Comments:</label>
         <textarea onChange={(e) => {
             setNewComments(e.target.value);

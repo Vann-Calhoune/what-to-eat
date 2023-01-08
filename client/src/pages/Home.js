@@ -13,6 +13,7 @@ align-items: center;
 padding-top: 30px;
 gap: 20px;
 background-color: #FDF5DF;
+
 `
 const HomeBottom = styled.div`
 display: flex;
@@ -36,6 +37,13 @@ justify-content: center;
 background-color: #FDF5DF;
 padding: 20px;
 gap: 20px;
+> button: hover {
+  cursor: pointer;
+}
+> button:active {
+  background-color: white;
+}
+
 `
 
 

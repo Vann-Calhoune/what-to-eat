@@ -7,6 +7,23 @@ const ListDiv = styled.div`
 
 `
 
+const Update = styled.div`
+display: flex;
+gap: 10px;
+> input {
+    border-radius: 10px;
+    
+}
+> button {
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+}
+> button: hover {
+    cursor: pointer;
+  }
+`
+
 const ListFormat = styled.div`
 border: 1px solid black;
 margin: 10px;
@@ -26,19 +43,23 @@ justify-content: space-between;
 > img {
     height: 30px;
 }
+> img: hover {
+    cursor: pointer;
+  }
 `
 
 function FoodList({setFoodArray , foodArray}) {
 
-    const [newName, setNewName] = useState('');
+    const [newRating, setNewRating] = useState('');
     
-    const updateFoodName = (id) => {
-        Axios.put("http://localhost:3001/update", { name: newName, id: id }).then((response) => {
+    const updateFoodRating = (id) => {
+        Axios.put("http://localhost:3001/update", { rating: newRating, id: id }).then((response) => {
             setFoodArray(foodArray.map((val) => {
-                return val.id === id ? {id: val.id, name: val.newName, type: val.type, location: val.location, recommendation: val.recommendation, price: val.price, rating: val.rating, comments: val.comments} : val;
+                return val.id === id ? {id: val.id, name: val.name, type: val.type, location: val.location, recommendation: val.recommendation, price: val.price, rating: val.newRating, comments: val.comments} : val;
         }));
         }
-     )
+       )
+       setNewRating('');
     }
 
     const deleteFood = (id) => {
@@ -79,10 +100,10 @@ function FoodList({setFoodArray , foodArray}) {
                         <p>Price: {val.price}</p>
                         <p>Rating: {val.rating}</p>
                         <p>Comments: {val.comments}</p>
-                        <div>
-                            <input onChange={(e) => setNewName(e.target.value)} type='text'/>
-                            <button onClick={() => {updateFoodName(val.id);}}>Update</button>
-                        </div>
+                        <Update>
+                            <input placeholder="New Rating" onChange={(e) => setNewRating(e.target.value)} type='text'/>
+                            <button onClick={() => {updateFoodRating(val.id);}}>Update</button>
+                        </Update>
             </ListFormat>
         })}
     </ListDiv>
