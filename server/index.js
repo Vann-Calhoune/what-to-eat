@@ -120,7 +120,7 @@ app.get('/search', (req, res) => {
     const type = req.query.type;
     const price = req.query.price;
     const rating = req.query.rating;  
-    db.query("SELECT * FROM restaurants WHERE type = ? AND price = ? AND rating = ?", [type, price, rating], (err, result) => {
+    db.query("SELECT name, type, location, recommendation, price, rating, comments FROM restaurants WHERE type = ? AND price = ? AND rating = ? UNION SELECT name, type, location, Null as recommendation, price, Null as rating, comments FROM newRestaurants WHERE type = ? AND price = ?", [type, price, rating, type, price], (err, result) => {
         if (err) {
             console.log(err);
             return res.status(500).send({ error: 'Database error' });

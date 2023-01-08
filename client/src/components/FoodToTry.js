@@ -70,7 +70,8 @@ function FoodToTry({setNewFoodArray , newFoodArray}) {
         <label>Type:</label>
         <select onChange={(e) => {
             setNewType(e.target.value);
-        }}> <option>Other</option>
+        }}> <option></option>  
+        <option>Other</option>
             <option>American</option>
             <option>BBQ</option>
             <option>Burgers</option>
@@ -90,7 +91,8 @@ function FoodToTry({setNewFoodArray , newFoodArray}) {
         <label>Price:</label>
          <select type='text' onChange={(e) => {
             setNewPrice(e.target.value);
-        }}><option>$</option>
+        }}><option></option> 
+            <option>$</option>
             <option>$$</option>
             <option>$$$</option></select>
         <label>Comments:</label>

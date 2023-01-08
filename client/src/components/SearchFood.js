@@ -49,7 +49,7 @@ const searchRestaurants = (e) => {
         <label>Type: </label>
         <select onChange={(e) => {
           setSearchType(e.target.value)
-        }}>
+        }}><option></option> 
             <option>Other</option>
             <option>American</option>
             <option>BBQ</option>
@@ -66,7 +66,7 @@ const searchRestaurants = (e) => {
         <label>Price: </label>
         <select onChange={(e) => {
           setSearchPrice(e.target.value)
-        }}>
+        }}><option></option> 
             <option>$</option>
             <option>$$</option>
             <option>$$$</option>
@@ -74,7 +74,7 @@ const searchRestaurants = (e) => {
         <label>Rating: </label>
         <select onChange={(e) => {
           setSearchRating(e.target.value)
-        }}>
+        }}><option></option> 
           <option>1</option>
             <option>2</option>
             <option>3</option>
