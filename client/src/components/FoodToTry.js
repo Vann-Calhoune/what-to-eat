@@ -14,6 +14,7 @@ margin: 10px;
 margin-bottom: 20px;
 padding: 10px;
 border-radius: 10px;
+
 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;> button {
     width: 15vw;
     margin: 0 auto;
@@ -70,7 +71,8 @@ function FoodToTry({setNewFoodArray , newFoodArray}) {
         <label>Type:</label>
         <select onChange={(e) => {
             setNewType(e.target.value);
-        }}> <option>Other</option>
+        }}> <option></option>  
+        <option>Other</option>
             <option>American</option>
             <option>BBQ</option>
             <option>Burgers</option>
@@ -90,7 +92,8 @@ function FoodToTry({setNewFoodArray , newFoodArray}) {
         <label>Price:</label>
          <select type='text' onChange={(e) => {
             setNewPrice(e.target.value);
-        }}><option>$</option>
+        }}><option></option> 
+            <option>$</option>
             <option>$$</option>
             <option>$$$</option></select>
         <label>Comments:</label>

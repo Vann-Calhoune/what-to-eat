@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import List from './pages/List';
 import Random from './pages/Random';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/List' element={<List />} />
         <Route path='/Random' element={<Random />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

@@ -82,7 +82,8 @@ function FoodForm({ setFoodArray, foodArray}) {
         <label>Type:</label>
         <select onChange={(e) => {
             setType(e.target.value);
-        }}> <option>Other</option>
+        }}><option></option> 
+        <option>Other</option>
             <option>American</option>
             <option>BBQ</option>
             <option>Burgers</option>
@@ -106,13 +107,15 @@ function FoodForm({ setFoodArray, foodArray}) {
         <label>Price:</label>
         <select type='text' onChange={(e) => {
             setPrice(e.target.value);
-        }}><option>$</option>
+        }}><option></option> 
+            <option>$</option>
             <option>$$</option>
             <option>$$$</option></select>
         <label>Rating(1-10):</label>
         <select onChange={(e) => {
             setRating(e.target.value);
-        }}><option>1</option>
+        }}><option></option> 
+            <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
