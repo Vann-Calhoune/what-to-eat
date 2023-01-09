@@ -18,8 +18,8 @@ function List() {
   return (
     <SearchMenu>
       <h1>Search Your Restaurants</h1>
-      <SearchFood searchResults={searchResults} setSearchResults={setSearchResults} />
-      <SearchFoodList searchResults={searchResults} setSearchResults={setSearchResults}/>
+      <SearchFood  setSearchResults={setSearchResults} />
+      <SearchFoodList searchResults={searchResults} />
       
     </SearchMenu>
   )

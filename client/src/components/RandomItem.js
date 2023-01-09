@@ -26,12 +26,11 @@ padding-top: 30px;
 height: 90vh;
 `
 
-function SearchFoodList({ searchResults }) {
-
-
+function RandomItem({ randomItem }) {
   return (
     <ListDiv>
-        {searchResults?.length ? searchResults.map((val) => {
+        
+        {randomItem?.length ? randomItem.map((val) => {
             return <ListFormat key={val.id}> 
                         <h3>Name: {val.name}</h3>
                         <p>Type: {val.type}</p>
@@ -40,11 +39,12 @@ function SearchFoodList({ searchResults }) {
                         <p>Price: {val.price}</p>
                         <p>Rating: {val.rating >= 1 ? val.rating : '(Have not ate here yet)'}</p>
                         <p>Comments: {val.comments}</p>
-            </ListFormat>
-        }): <NoResult>No restaurants to display</NoResult>} 
+            </ListFormat>})
+             
+        : <NoResult>No restaurants to display</NoResult>} 
       
     </ListDiv>
   )
 }
 
-export default SearchFoodList
+export default RandomItem

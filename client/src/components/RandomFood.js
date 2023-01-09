@@ -1,6 +1,6 @@
-import Axios from 'axios';
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Axios from 'axios'
 
 const SearchForm = styled.div`
 display: flex;
@@ -22,33 +22,32 @@ gap: 10px;
 
 
 `
+ 
 
-function SearchFood({ setSearchResults }) {
+function RandomFood({ randomItem, setRandomItem }) {
 
-const [searchType, setSearchType] = useState('');
-const [searchPrice, setSearchPrice] = useState('');
-const [searchRating, setSearchRating] = useState('');
-
-
-const searchRestaurants = (e) => {
-  e.preventDefault()
-  Axios.get(`http://localhost:3001/search?type=${searchType}&price=${searchPrice}&rating=${searchRating}`)
-  .then((response) => {
-    setSearchResults(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
-}
-
-
+    const [searchType, setSearchType] = useState('');
+    const [searchPrice, setSearchPrice] = useState('');
+    const [searchRating, setSearchRating] = useState('');
+    
+    
+    const chooseRandom = (e) => {
+      e.preventDefault()
+      Axios.get(`http://localhost:3001/random?type=${searchType}&price=${searchPrice}&rating=${searchRating}`)
+      .then((response) => {
+        setRandomItem(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    
+    }
 
   return (
     <SearchForm>
         <label>Type: </label>
         <select onChange={(e) => {
-          setSearchType(e.target.value)
+        setSearchType(e.target.value)
         }}><option></option> 
             <option>Other</option>
             <option>American</option>
@@ -65,7 +64,7 @@ const searchRestaurants = (e) => {
         </select>
         <label>Price: </label>
         <select onChange={(e) => {
-          setSearchPrice(e.target.value)
+        setSearchPrice(e.target.value)
         }}><option></option> 
             <option>$</option>
             <option>$$</option>
@@ -73,9 +72,9 @@ const searchRestaurants = (e) => {
         </select>
         <label>Rating: </label>
         <select onChange={(e) => {
-          setSearchRating(e.target.value)
+        setSearchRating(e.target.value)
         }}><option></option> 
-          <option>1</option>
+        <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
@@ -86,9 +85,9 @@ const searchRestaurants = (e) => {
             <option>9</option>
             <option>10</option>
         </select>
-        <button onClick={searchRestaurants}>Submit</button>
-      </SearchForm>
+        <button onClick={chooseRandom}>Submit</button>
+  </SearchForm>
   )
 }
 
-export default SearchFood
+export default RandomFood
