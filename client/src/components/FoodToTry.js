@@ -65,11 +65,11 @@ function FoodToTry({setNewFoodArray , newFoodArray}) {
   return (
     <EntryForm>
         <label>Name:</label>
-        <input type='text' onChange={(e) => {
+        <input value={newName} type='text' onChange={(e) => {
             setNewName(e.target.value);
         }}></input>
         <label>Type:</label>
-        <select onChange={(e) => {
+        <select value={newType} onChange={(e) => {
             setNewType(e.target.value);
         }}> <option></option>  
         <option>Other</option>
@@ -86,18 +86,18 @@ function FoodToTry({setNewFoodArray , newFoodArray}) {
             <option>Thai</option>
             </select>
         <label>Location:</label>
-        <input type='text' onChange={(e) => {
+        <input value={newLocation} type='text' onChange={(e) => {
             setNewLocation(e.target.value);
         }}></input>
         <label>Price:</label>
-         <select type='text' onChange={(e) => {
+         <select value={newPrice} type='text' onChange={(e) => {
             setNewPrice(e.target.value);
         }}><option></option> 
             <option>$</option>
             <option>$$</option>
             <option>$$$</option></select>
         <label>Comments:</label>
-        <textarea onChange={(e) => {
+        <textarea value={newComments} onChange={(e) => {
             setNewComments(e.target.value);
         }}></textarea>
         <button onClick={addNewRestaurant}>Submit</button>

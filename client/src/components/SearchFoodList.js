@@ -5,7 +5,6 @@ const ListDiv = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-height: 90vh;
 `
 const ListFormat = styled.div`
 border: 1px solid black;
