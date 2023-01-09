@@ -130,6 +130,20 @@ app.get('/search', (req, res) => {
     })
   });
 
+  app.get('/random', (req, res) => {
+    const type = req.query.type;
+    const price = req.query.price;
+    const rating = req.query.rating;  
+    db.query("SELECT name, type, location, recommendation, price, rating, comments FROM restaurants WHERE type = ? AND price = ? AND rating = ? UNION SELECT name, type, location, Null as recommendation, price, Null as rating, comments FROM newRestaurants WHERE type = ? AND price = ? ORDER BY RAND() LIMIT 1", [type, price, rating, type, price], (err, result) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send({ error: 'Database error' });
+        } else {
+            res.send(result)
+        }
+    })
+  });
+
 app.listen(3001, () => {
     console.log("Server is running");
 });
