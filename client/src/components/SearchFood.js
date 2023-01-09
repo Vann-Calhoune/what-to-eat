@@ -12,12 +12,17 @@ gap: 10px;
   border-radius: 10px;
   background-color: crimson;
   color: white;
+  padding: 3px;
 }
 > button:active {
   background-color: white;
 }
 > button:hover {
   cursor: pointer;
+}
+> select {
+  border-radius: 10px;
+  padding: 3px;
 }
 
 
@@ -47,7 +52,7 @@ const searchRestaurants = (e) => {
   return (
     <SearchForm>
         <label>Type: </label>
-        <select onChange={(e) => {
+        <select value={searchType} onChange={(e) => {
           setSearchType(e.target.value)
         }}><option></option> 
             <option>Other</option>
@@ -64,7 +69,7 @@ const searchRestaurants = (e) => {
             <option>Thai</option>
         </select>
         <label>Price: </label>
-        <select onChange={(e) => {
+        <select value={searchPrice} onChange={(e) => {
           setSearchPrice(e.target.value)
         }}><option></option> 
             <option>$</option>
@@ -72,7 +77,7 @@ const searchRestaurants = (e) => {
             <option>$$$</option>
         </select>
         <label>Rating: </label>
-        <select onChange={(e) => {
+        <select value={searchRating} onChange={(e) => {
           setSearchRating(e.target.value)
         }}><option></option> 
           <option>1</option>

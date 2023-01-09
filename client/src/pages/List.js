@@ -16,12 +16,11 @@ function List() {
 
 
   return (
-    <SearchMenu>
-      <h1>Search Your Restaurants</h1>
-      <SearchFood  setSearchResults={setSearchResults} />
-      <SearchFoodList searchResults={searchResults} />
-      
-    </SearchMenu>
+      <SearchMenu>
+        <h1>Search Your Restaurants</h1>
+        <SearchFood  setSearchResults={setSearchResults} />
+        <SearchFoodList searchResults={searchResults} />
+      </SearchMenu>
   )
 }
 

@@ -76,11 +76,11 @@ function FoodForm({ setFoodArray, foodArray}) {
   return (
     <EntryForm >
         <label>Name:</label>
-        <input type='text' onChange={(e) => {
+        <input value={name} type='text' onChange={(e) => {
             setName(e.target.value);
         }}></input>
         <label>Type:</label>
-        <select onChange={(e) => {
+        <select value={type} onChange={(e) => {
             setType(e.target.value);
         }}><option></option> 
         <option>Other</option>
@@ -97,22 +97,22 @@ function FoodForm({ setFoodArray, foodArray}) {
             <option>Thai</option>
             </select>
         <label>Location:</label>
-        <input type='text' onChange={(e) => {
+        <input value={location} type='text' onChange={(e) => {
             setLocation(e.target.value);
         }}></input>
         <label>Recommendation:</label>
-        <input type='text' onChange={(e) => {
+        <input value={recommendation} type='text' onChange={(e) => {
             setRecommendation(e.target.value);
         }}></input>
         <label>Price:</label>
-        <select type='text' onChange={(e) => {
+        <select value={price} type='text' onChange={(e) => {
             setPrice(e.target.value);
         }}><option></option> 
             <option>$</option>
             <option>$$</option>
             <option>$$$</option></select>
         <label>Rating(1-10):</label>
-        <select onChange={(e) => {
+        <select value={rating} onChange={(e) => {
             setRating(e.target.value);
         }}><option></option> 
             <option>1</option>
@@ -126,7 +126,7 @@ function FoodForm({ setFoodArray, foodArray}) {
             <option>9</option>
             <option>10</option></select>
         <label>Comments:</label>
-        <textarea onChange={(e) => {
+        <textarea value={comments} onChange={(e) => {
             setComments(e.target.value);
         }}></textarea>
         <button onClick={addRestaurant}>Submit</button>
