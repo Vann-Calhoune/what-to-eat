@@ -1,3 +1,6 @@
+require('dotenv').config()
+const connection = mysql.createConnection(process.env.DATABASE_URL)
+
 const express = require('express');
 const app = express();
 const mysql = require('mysql2');
@@ -145,6 +148,7 @@ app.get('/search', (req, res) => {
   });
 
 app.listen(3001, () => {
-    console.log("Server is running");
+    console.log('Connected to PlanetScale!')
+
 });
 
